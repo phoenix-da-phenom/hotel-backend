@@ -23,13 +23,6 @@ jobs:
       - name: Install Composer Dependencies
         run: composer install --no-dev --optimize-autoloader
 
-      # <<< ADD THIS STEP BEFORE KEY GENERATION
-      - name: Copy .env from example
-        run: cp .env.example .env
-
-      - name: Generate App Key
-        run: php artisan key:generate
-
       - name: Optimize Laravel
         run: |
           php artisan config:cache
